@@ -1,8 +1,6 @@
 <?php
 namespace Exercice\Blog\Model;
 
-require("model/Manager.php");
-
 class CommentManager extends Manager
 {
     public function getComments(int $postId)
