@@ -25,3 +25,16 @@ function post(int $id)
     require("view/frontend/postView.php");
 
 }
+
+function addComment($postId, $author, $comment)
+{
+    $commentManager = new CommentManager();
+    $response = $commentManager->postComment($postId, $author, $comment);
+
+    if($response === false){
+        throw new Exception("Impossible d'ajouter le commentaire");
+    }else{
+        header("LOCATION: index.php?action=post&id=".$postId);
+    }
+
+}

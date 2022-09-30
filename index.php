@@ -15,6 +15,22 @@
                 }else{
                     throw new Exception("Aucun identifant d'article envoyé");
                 }
+            }elseif($_GET['action']=="addComment")
+            {
+                if(isset($_GET['id']) && !empty($_GET['id']))
+                {
+                    if(!empty($_POST['author']) && !empty($_POST['comment']))
+                    {
+                        $id= htmlspecialchars($_GET['id']);
+                        $author= htmlspecialchars($_POST['author']);
+                        $comment= htmlspecialchars($_POST['comment']);
+                        addComment($id, $author, $comment);
+                    }else{
+                        throw new Exception("vous n'avez pas tout rempli"); 
+                    }
+                }else{
+                    throw new Exception("Aucun identifant d'article envoyé");
+                }
             }
             else{
                 listPost();

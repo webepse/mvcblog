@@ -14,6 +14,24 @@
 </div>
 
 <h2>Commentaires</h2>
+    <div>
+        <form action="index.php?action=addComment&id=<?= $post['id'] ?>" method="POST">
+            <div>
+                <label for="author">Auteur: </label>
+                <input type="text" id="author" name="author">
+            </div>
+            <div>
+                <label for="comment">Commentaire: </label><br>
+                <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <input type="submit" value="envoyer">
+            </div>
+        </form>
+
+    </div>
+
+
 <?php 
     while($comment = $comments->fetch())
     {
