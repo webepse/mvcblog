@@ -7,7 +7,16 @@
             if($_GET['action']=='listPosts')
             {
                 listPost();
-            }else{
+            }elseif($_GET['action']=="post")
+            {
+                if(isset($_GET['id']) && !empty($_GET['id']))
+                {
+                    post($_GET['id']);
+                }else{
+                    throw new Exception("Aucun identifant d'article envoyé");
+                }
+            }
+            else{
                 listPost();
             }
         }else{
